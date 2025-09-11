@@ -73,23 +73,23 @@ section {
 .service-card {
     display: flex;
     flex-direction: column; /* dikey sıralama */
-    align-items: center;    /* buton ortalanır */
+    align-items: center;    /* başlık ve buton ortalanır */
     margin: 15px;
-    text-align: left;       /* görsel ve yazı sola yaslı */
     width: 250px;
     background: #ffffff;
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     padding: 15px;
+    text-align: center; /* başlık ve buton ortalanır */
 }
 
 .service-card img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
+    display: block;         /* sola yaslı */
+    margin-left: 0;         /* görsel sola yapışık */
     margin-bottom: 10px;
-    display: block;         /* görsel sola yaslanır */
-    margin-left: 0;         /* ekstra sola yaslama */
 }
 
 .service-card button {
@@ -193,8 +193,17 @@ footer {
     .service-card {
         width: 80%;
         margin: 15px auto;
-        text-align: center;  /* mobilde ortala */
+        text-align: center;
         align-items: center;
+    }
+
+    .service-card img {
+        margin-left: auto;
+        margin-right: auto; /* mobilde ortalanmış görsel */
+    }
+
+    .service-card button {
+        align-self: center;
     }
 
     .contact-card {
