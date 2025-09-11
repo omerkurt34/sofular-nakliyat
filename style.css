@@ -33,6 +33,7 @@ header nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    justify-content: center; /* Desktopta menüyü ortala */
 }
 
 header nav ul li {
@@ -49,7 +50,7 @@ header nav ul li a:hover {
     color: #ffd700;
 }
 
-/* Ana Sayfa Hero */
+/* Hero */
 .hero {
     background-color: #e6f0ff;
     text-align: center;
@@ -65,17 +66,17 @@ header nav ul li a:hover {
     font-size: 18px;
 }
 
+.hero img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* Section Başlıkları */
 section h2 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 28px;
     color: #004aad;
-}
-
-/* Hakkımızda / Genel Section */
-section {
-    padding: 40px 20px;
 }
 
 /* Hizmetler Kartları */
@@ -85,7 +86,7 @@ section {
     padding: 20px;
     margin: 15px;
     display: inline-block;
-    width: 300px;
+    width: 300px; /* Desktop için sabit */
     vertical-align: top;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     text-align: center;
@@ -123,12 +124,13 @@ section {
     background: #f4f4f4;
     border-radius: 12px;
     padding: 20px;
-    display: inline-block;
-    width: 100%;
+    display: inline-block; /* Desktopta yan yana veya orta */
+    width: 300px;
     max-width: 500px;
     box-sizing: border-box;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    margin: 0 auto;
+    margin: 15px;
+    text-align: left;
 }
 
 .contact-card p {
@@ -163,35 +165,35 @@ footer {
 
 /* Mobil Uyumluluk */
 @media (max-width: 768px) {
+
+    /* Header menü */
     header nav ul {
-        display: flex;
         flex-direction: column;
         text-align: center;
-        padding: 0;
     }
+
     header nav ul li {
         margin-left: 0;
         margin-top: 10px;
     }
 
-    .service-card {
+    /* Hizmetler ve iletişim kutusu */
+    .service-card, .contact-card {
+        display: block;
         width: 90%;
         max-width: 90%;
         margin: 10px auto;
+        text-align: center;
     }
 
-    .contact-card {
-        width: 90%;
-        max-width: 90%;
-        padding: 15px;
-    }
-
+    /* WhatsApp butonu mobil tam genişlik */
     .whatsapp {
         display: block;
         width: 100%;
         box-sizing: border-box;
     }
 
+    /* Hero yazıları */
     .hero h1 {
         font-size: 28px;
     }
