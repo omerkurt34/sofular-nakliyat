@@ -39,11 +39,12 @@ body {
     margin-left: 25px;
     font-size: 15px;
     font-weight: 500;
+    transition: all 0.3s ease; /* animasyon eklendi */
 }
 
 .nav a:hover {
-    text-decoration: underline;
-    color: #f0a500; /* Opsiyonel hover vurgu rengi */
+    color: #f0a500; /* hover vurgu rengi */
+    transform: scale(1.1); /* hafif büyütme */
 }
 
 /* HERO */
@@ -88,6 +89,13 @@ body {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     text-align: center;
+    transition: all 0.3s ease; /* hover animasyon */
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* yukarı kayma */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* gölgeyi güçlendir */
+    background-color: #f9f9f9; /* hafif gri ton ekle */
 }
 
 .service-card img {
