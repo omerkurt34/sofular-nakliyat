@@ -1,1 +1,0 @@
-# sofular-nakliyat
