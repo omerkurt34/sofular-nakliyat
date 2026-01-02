@@ -30,7 +30,7 @@ body {
 }
 
 .logo {
-    height: 90px;
+    height: 90px; /* Güncellenmiş logo boyutu */
 }
 
 .nav a {
@@ -43,6 +43,7 @@ body {
 
 .nav a:hover {
     text-decoration: underline;
+    color: #f0a500; /* Opsiyonel hover vurgu rengi */
 }
 
 /* HERO */
@@ -106,6 +107,34 @@ body {
     line-height: 1.6;
 }
 
+/* KURUMSAL */
+.kurumsal {
+    background-color: #ffffff;
+    padding: 50px 20px;
+    margin: 50px auto;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.kurumsal h2 {
+    color: #0b1f3a;
+    margin-bottom: 20px;
+}
+
+/* İLETİŞİM */
+.iletisim {
+    background-color: #ffffff;
+    padding: 50px 20px;
+    margin: 50px auto 30px auto;
+    border-radius: 6px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.iletisim h2 {
+    color: #0b1f3a;
+    margin-bottom: 20px;
+}
+
 /* FOOTER */
 .footer {
     background-color: #0b1f3a;
@@ -115,3 +144,26 @@ body {
     font-size: 14px;
 }
 
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .hero-overlay {
+        padding-left: 5%;
+    }
+
+    .hero-overlay h1 {
+        font-size: 28px;
+    }
+
+    .hero-overlay p {
+        font-size: 16px;
+    }
+
+    .logo {
+        height: 70px;
+    }
+
+    .nav a {
+        margin-left: 15px;
+        font-size: 14px;
+    }
+}
