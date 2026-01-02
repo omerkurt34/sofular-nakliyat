@@ -6,7 +6,7 @@
 }
 
 .header {
-  background: #0d3b66;
+  background-color: #0d3b66;
   padding: 15px 0;
 }
 
@@ -14,8 +14,8 @@
   width: 90%;
   margin: auto;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
@@ -35,15 +35,15 @@ nav a {
   background-size: cover;
   background-position: center;
   display: flex;
-  align-items: center;
   justify-content: center;
-  color: white;
+  align-items: center;
 }
 
 .hero h1 {
-  background: rgba(0,0,0,0.55);
+  color: #ffffff;
+  background: rgba(0,0,0,0.6);
   padding: 20px 40px;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .services {
@@ -55,7 +55,7 @@ nav a {
 }
 
 .service-card {
-  background: #ffffff;
+  background-color: #ffffff;
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
