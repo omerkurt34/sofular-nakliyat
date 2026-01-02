@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Yönetim Paneli - Sofular Nakliyat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Panel özel stil */
+        body {background-color:#f4f6f8;}
+        .container {max-width:800px; margin:auto; padding:30px;}
+        h2 {color:#0b1f3a; margin-bottom:20px;}
+        label {display:block; margin-top:15px; font-weight:600;}
+        input, textarea {width:100%; padding:10px; margin-top:5px; border-radius:5px; border:1px solid #ccc;}
+        button {margin-top:20px; padding:12px 20px; border:none; border-radius:5px; background-color:#0b1f3a; color:#fff; cursor:pointer; font-weight:600; transition:0.3s;}
+        button:hover {background-color:#f0a500;}
+        .yorum-item {background:#fff; padding:10px 15px; border-radius:6px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center; box-shadow:0 3px 10px rgba(0,0,0,0.08);}
+        .yorum-item p {margin:0;}
+        .delete-btn {background:red; color:#fff; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;}
+        .delete-btn:hover {background:#a00;}
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Sayfa İçeriği Düzenleme</h2>
+    <form id="pageForm">
+        <label for="heroText">Hero Başlığı:</label>
+        <input type="text" id="heroText" placeholder="Hero Başlığı">
+
+        <label for="heroSubText">Hero Alt Yazısı:</label>
+        <input type="text" id="heroSubText" placeholder="Hero Alt Yazısı">
+
+        <button type="submit">Kaydet</button>
+    </form>
+
+    <h2>Müşteri Yorumları</h2>
+    <form id="yorumForm">
+        <label for="yorumAdi">Ad:</label>
+        <input type="text" id="yorumAdi" placeholder="Ad">
+
+        <label for="yorumMesaj">Yorum:</label>
+        <textarea id="yorumMesaj" placeholder="Mesajınız"></textarea>
+
+        <button type="submit">Yorum Ekle</button>
+    </form>
+
+    <div id="yorumListesiPanel"></div>
+</div>
+
+<script>
+    // Sayfa içerik kaydetme
+    const pageForm = document.getElementById('pageForm');
+    pageForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        localStorage.setItem('heroTitle', document.getElementById('heroText').value);
+        localStorage.setItem('heroSubtitle', document.getElementById('heroSubText').value);
+        alert('Hero metinleri kaydedildi!');
+        pageForm.reset();
+    });
+
+    // Yorum yönetimi
+    const yorumForm = document.getElementById('yorumForm');
+    const yorumListesiPanel = document.getElementById('yorumListesiPanel');
+
+    function renderYorumlar(){
+        yorumListesiPanel.innerHTML = '';
+        const yorumlar = JSON.parse(localStorage.getItem('yorumlar')) || [];
+        yorumlar.forEach((y,index)=>{
+            const div = document.createElement('div');
+            div.className = 'yorum-item';
+            div.innerHTML = `<p><strong>${y.ad}:</strong> ${y.mesaj}</p> <button class="delete-btn" data-index="${index}">Sil</button>`;
+            yorumListesiPanel.appendChild(div);
+        });
+        document.querySelectorAll('.delete-btn').forEach(btn=>{
+            btn.addEventListener('click', function(){
+                const idx = this.dataset.index;
+                let yorumlar = JSON.parse(localStorage.getItem('yorumlar')) || [];
+                yorumlar.splice(idx,1);
+                localStorage.setItem('yorumlar', JSON.stringify(yorumlar));
+                renderYorumlar();
+            });
+        });
+    }
+
+    yorumForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        let yorumlar = JSON.parse(localStorage.getItem('yorumlar')) || [];
+        yorumlar.push({
+            ad: document.getElementById('yorumAdi').value,
+            mesaj: document.getElementById('yorumMesaj').value
+        });
+        localStorage.setItem('yorumlar', JSON.stringify(yorumlar));
+        yorumForm.reset();
+        renderYorumlar();
+    });
+
+    // Panel açıldığında yorumları göster
+    renderYorumlar();
+</script>
+</body>
+</html>
